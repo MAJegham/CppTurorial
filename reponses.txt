@@ -1,0 +1,12 @@
+___ Question 4 ___
+Il s'agit d'une méthode abstraite ou virtuelle pure déclarée dans le .h comme "virtual" et avec l'indication " = 0 ".
+Il s'agit d'une classe abstraite qui ne peut être instanciée car elle contient la méthode virtuelle pure playMedia().
+
+___ Question 5 ___
+Il s'agit du polymorphisme qui permet de définir plusieurs comportement au même objet ici les elements du vector<Mltimedia> pointent sur des objets de type réellement différents (des "Video"s et des "Photo"s) et selon l'objet pointé les méthodes playMedia et Describe ont des comportement différents.
+Pour pouvoir utiliser celà en c++ on doit utiliser des pointeurs ou des références et le mot clé "virtual".
+C'est pour cela que le vector créé contient des pointeurs vers les objets (Multimedia*) et non pas les objets eux mêmes.
+L'utilisation des objets eux-mêmes ne peret pas la résolution dynamique et le compilateur ne saurait à quel type d'objet Multimedia il a affaire.
+Dans java, le polymorphisme fonctionne si on déclarait un tableau d'objets parceque java fait abstraction des manipulations que l'on a à faire en c++ et il travaille en interne avec des reference.
+
+
