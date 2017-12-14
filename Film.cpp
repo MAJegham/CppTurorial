@@ -17,6 +17,46 @@ Film::Film(std::string name, std::string pathname):
     chaptersNumber(0), chaptersDurations(nullptr)
 {}
 
+Film::Film(const Film& from) : Video(from)
+{
+    chaptersNumber = from.chaptersNumber;
+    if (from.chaptersDurations)
+    {
+        int * copyArray = new int[chaptersNumber];
+        for (int i = 0; i < from.chaptersNumber; i++)
+        {
+            copyArray[i] = from.chaptersDurations[i];
+        }
+        chaptersDurations = copyArray;
+    }
+    else
+        chaptersDurations = nullptr;
+}
+
+Film& Film::operator=(const Film& from)
+{
+    Video::operator=(from);
+    chaptersNumber = from.chaptersNumber;
+    if (chaptersDurations && from.chaptersDurations)
+        *chaptersDurations = *(from.chaptersDurations);
+    else
+    {
+        delete chaptersDurations;
+        if (from.chaptersDurations)
+        {
+            int * copyArray = new int[chaptersNumber];
+            for (int i = 0; i < from.chaptersNumber; i++)
+            {
+                copyArray[i] = from.chaptersDurations[i];
+            }
+            chaptersDurations = copyArray;
+        }
+        else
+            chaptersDurations = nullptr;
+    }
+    return *this;
+}
+
 void Film::setChaptersDurations(const int* chaptersDurations,const int chaptersNumber)
 {
     int * copyArray = new int[chaptersNumber];
