@@ -8,15 +8,9 @@ Groupe::Groupe(const std::string groupname):
     groupname(groupname)
 {}
 
-Groupe::Groupe(const std::string groupname, Multimedia** media, const int n):
-    groupname(groupname)
-{
-    for (int i = 0; i < n; i++)
-    {
-        this->push_back(media[i]);
-    }
-
-}
+Groupe::Groupe(const std::string groupname, std::initializer_list<Multimedia*> il):
+    std::list<Multimedia*>(il), groupname(groupname)
+{}
 
 std::string Groupe::getGroupName() const
 {

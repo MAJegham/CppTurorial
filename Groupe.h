@@ -4,6 +4,7 @@
 #include "Multimedia.h"
 #include <list>
 #include <string>
+#include <initializer_list>
 
 class Groupe : public std::list<Multimedia*>
 {
@@ -15,7 +16,8 @@ private:
 public:
     Groupe();
     Groupe(const std::string groupname);
-    Groupe(const std::string groupname, Multimedia** media, const int n);
+    //Groupe(const std::string groupname, Multimedia** media, const int n); // NOT A GOOD IDEA
+    Groupe(const std::string groupname,std::initializer_list<Multimedia*> il);
 
     std::string getGroupName() const;
     void describe(std::ostream& stream) const;

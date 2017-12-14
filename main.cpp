@@ -45,7 +45,7 @@ int main(int argc, char* argv[]) {
     listeMedia.push_back(clip);
     listeMedia.push_back(multi);
     for( auto it = listeMedia.begin(); //std::vector<Multimedia*>::iterator
-        it != listeMedia.end(); ++it)
+         it != listeMedia.end(); ++it)
     {
         (*it)->describe(std::cout);
         //(*it)->playMedia();
@@ -64,7 +64,7 @@ int main(int argc, char* argv[]) {
 
     //___________________________________________________________________ ETAPE 6 ___
     std::cout << "____ QUESTION 6 : ____" << std::endl;
-    int dur [5] = { 10, 20, 30 };
+    int dur [] = { 10, 20, 30 };
     Film* movie = new Film("MOVIEname","MOVIEpath",60,3,dur); //int[] can be cast to int*
     movie->describe(std::cout);
 
@@ -102,9 +102,23 @@ int main(int argc, char* argv[]) {
     copy_movie->describe(std::cout);
 
     //___________________________________________________________________ ETAPE 8 ___
-    Groupe grp = Groupe("Premier Groupe",(Multimedia**)&clip,1); //DOESN'T COMPILE WITHOUT CAST ???
+    Groupe grp = Groupe("Premier Groupe");
     grp.describe(std::cout);
-    //grp.push_back(movie);
+    grp.push_back(movie);
     (grp.front())->describe(std::cout);
+
+    Groupe grp2 = Groupe("2eme Groupe",{multi, clip});
+    grp2.describe(std::cout);
+    (grp2.front())->describe(std::cout);
+    std::cout << grp2.size() << std::endl;
+
+    //__________________________ TEST AREA ____________________________________
+    std::cout << "\t____TEST____" << std::endl;
+    int t1 = 10;
+    int t2 = 50;
+    int t3 = 10;
+    int tab [3] = { t1, t2, t3 };
+    for (int i=0; i<3; i++)
+        std::cout << tab[i] << std::endl;
 
 }
