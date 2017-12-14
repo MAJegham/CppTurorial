@@ -16,11 +16,14 @@ public:
 
     Film(std::string name, std::string pathname);
 
+
     void setChaptersDurations(const int* chaptersDurations,const int chaptersNumber);
-    const int * const getChaptersDurations() const;
+    int * getChaptersDurations() const;
     int getChaptersNumber() const;
 
     void describe(std::ostream& stream) const override;
+
+    virtual ~Film();
 
 };
 
