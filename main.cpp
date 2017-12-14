@@ -102,23 +102,7 @@ int main(int argc, char* argv[]) {
     copy_movie->describe(std::cout);
 
     //___________________________________________________________________ ETAPE 8 ___
-    Groupe grp = Groupe("Premier Groupe");
+    Groupe grp = Groupe("Premier Groupe",{movie, multi, clip});
     grp.describe(std::cout);
-    grp.push_back(movie);
-    (grp.front())->describe(std::cout);
-
-    Groupe grp2 = Groupe("2eme Groupe",{multi, clip});
-    grp2.describe(std::cout);
-    (grp2.front())->describe(std::cout);
-    std::cout << grp2.size() << std::endl;
-
-    //__________________________ TEST AREA ____________________________________
-    std::cout << "\t____TEST____" << std::endl;
-    int t1 = 10;
-    int t2 = 50;
-    int t3 = 10;
-    int tab [3] = { t1, t2, t3 };
-    for (int i=0; i<3; i++)
-        std::cout << tab[i] << std::endl;
 
 }

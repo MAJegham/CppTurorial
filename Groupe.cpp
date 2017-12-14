@@ -19,5 +19,9 @@ std::string Groupe::getGroupName() const
 
 void Groupe::describe(std::ostream& stream) const
 {
-    stream << "Nom du groupe: " << this->getGroupName() << std::endl;
+    stream << "Multimedia group description : " << this->getGroupName() << std::endl;
+    for (auto it : *this)
+    {
+        it->describe(stream);
+    }
 }
