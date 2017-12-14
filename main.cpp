@@ -80,7 +80,7 @@ int main(int argc, char* argv[]) {
     //const still enables the use of delete
     std::cout << "__ Testing getChapterDurations method" << std::endl;
     const int * chapters_ = movie->getChaptersDurations();
-    //delete [] chapters_;
+    delete [] chapters_;
     movie->describe(std::cout);
 
 
