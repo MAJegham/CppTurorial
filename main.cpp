@@ -7,6 +7,7 @@
 #include "Photo.h"
 #include "Video.h"
 #include "Film.h"
+#include "Groupe.h"
 #include <vector>
 
 int main(int argc, char* argv[]) {
@@ -64,7 +65,7 @@ int main(int argc, char* argv[]) {
     //___________________________________________________________________ ETAPE 6 ___
     std::cout << "____ QUESTION 6 : ____" << std::endl;
     int dur [5] = { 10, 20, 30 };
-    Film* movie = new Film("MOVIEname","MOVIEpath",60,3,&dur[0]);
+    Film* movie = new Film("MOVIEname","MOVIEpath",60,3,dur); //int[] can be cast to int*
     movie->describe(std::cout);
 
     std::cout << "__ Testing setChaptersDurations method" << std::endl;
@@ -83,6 +84,7 @@ int main(int argc, char* argv[]) {
     delete chapters_; //deletes chapters_ but not movie's chapters
     movie->describe(std::cout);
     std::cout << chapters_[2] << std::endl;
+
     //___________________________________________________________________ ETAPE 7 ___
     // _______ Testing object copy problem
     std::cout << "__ Testing copy" << std::endl;
@@ -99,5 +101,8 @@ int main(int argc, char* argv[]) {
     std::cout << "copy of movie:" << std::endl;
     copy_movie->describe(std::cout);
 
+    //___________________________________________________________________ ETAPE 8 ___
+    Groupe grp = Groupe("Premier Groupe");
+    grp.describe(std::cout);
 
 }

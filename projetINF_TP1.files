@@ -7,3 +7,5 @@ Video.h
 main.cpp
 Film.h
 Film.cpp
+Groupe.h
+Groupe.cpp
