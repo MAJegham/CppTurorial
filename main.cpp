@@ -102,7 +102,9 @@ int main(int argc, char* argv[]) {
     copy_movie->describe(std::cout);
 
     //___________________________________________________________________ ETAPE 8 ___
-    Groupe grp = Groupe("Premier Groupe");
+    Groupe grp = Groupe("Premier Groupe",(Multimedia**)&clip,1); //DOESN'T COMPILE WITHOUT CAST ???
     grp.describe(std::cout);
+    //grp.push_back(movie);
+    (grp.front())->describe(std::cout);
 
 }

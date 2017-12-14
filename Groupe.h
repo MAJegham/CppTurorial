@@ -15,7 +15,7 @@ private:
 public:
     Groupe();
     Groupe(const std::string groupname);
-    Groupe(const std::string groupname, const Multimedia** const media, const int n);
+    Groupe(const std::string groupname, Multimedia** media, const int n);
 
     std::string getGroupName() const;
     void describe(std::ostream& stream) const;
