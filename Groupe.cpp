@@ -8,9 +8,15 @@ Groupe::Groupe(const std::string groupname):
     groupname(groupname)
 {}
 
-Groupe::Groupe(const std::string groupname, std::initializer_list<Multimedia*> il):
-    std::list<Multimedia*>(il), groupname(groupname)
+Groupe::Groupe(const std::string groupname, std::initializer_list<std::shared_ptr<Multimedia>> il):
+    std::list<std::shared_ptr<Multimedia>>(il), groupname(groupname)
 {}
+
+//Groupe(const std::string groupname,std::initializer_list<Multimedia*> il):
+//    std::list<std::shared_ptr<Multimedia>>(il), groupname(groupname)
+//{
+//     std::shared_ptr<Photo> image_shPtr(image);
+//}
 
 std::string Groupe::getGroupName() const
 {

@@ -93,11 +93,18 @@ int Film::getChaptersNumber() const
 void Film::describe(std::ostream& stream) const
 {
     Video::describe(stream);
-    stream << "Chapters description..." << std::endl;
-    for (int i=0; i < this->chaptersNumber; i++)
+    if (this->chaptersDurations)
     {
-        stream << "Chapter " << i+1 << "'s duration is " << this->chaptersDurations[i]
-                  << std::endl;
+        stream << "Chapters description..." << std::endl;
+        for (int i=0; i < this->chaptersNumber; i++)
+        {
+            stream << "Chapter " << i+1 << "'s duration is " << this->chaptersDurations[i]
+                      << std::endl;
+        }
+    }
+    else
+    {
+        stream << "Undefined chapters' durations" << std::endl;
     }
 }
 

@@ -4,9 +4,10 @@
 #include "Multimedia.h"
 #include <list>
 #include <string>
-#include <initializer_list>
+#include <memory>
 
-class Groupe : public std::list<Multimedia*>
+
+class Groupe : public std::list<std::shared_ptr<Multimedia>>
 {
 
 private:
@@ -17,7 +18,8 @@ public:
     Groupe();
     Groupe(const std::string groupname);
     //Groupe(const std::string groupname, Multimedia** media, const int n); // NOT A GOOD IDEA
-    Groupe(const std::string groupname,std::initializer_list<Multimedia*> il);
+    Groupe(const std::string groupname,std::initializer_list<std::shared_ptr<Multimedia>> il);
+//    Groupe(const std::string groupname,std::initializer_list<Multimedia*> il);
 
     std::string getGroupName() const;
     void describe(std::ostream& stream) const;

@@ -10,9 +10,12 @@
 #include "Groupe.h"
 #include <vector>
 
+#define so std::cout
+
 int main(int argc, char* argv[]) {
 
     //___________________________________________________________________ Hello
+    std::cout << "_______________________________________________________" << std::endl;
     std::cout << "Hello, This is the project work from INF224 "
               << std::endl;
 
@@ -21,24 +24,24 @@ int main(int argc, char* argv[]) {
     Multimedia* multi;
     std::cout << "Multimedia class is abstract !" << std::endl;
     //we can't instanciate a Multimedia object as Multimedia is abstract
-    multi = new Photo("PhotoMedia","./media/groot.jpg");
+    multi = new Photo("PhotoMedia","./media/groot.jpg",894,1311);
 
     //___________________________________________________________________ Testing Photo Class
     std::cout << "Testing Photo class : " << std::endl;
-    Photo* image = new Photo("photoName","./media/walle.jpeg");
+    Photo* image = new Photo("imageWalle","./media/walle.jpeg",940,627);
     //image->describe(std::cout);
     //image->playMedia();
 
     //___________________________________________________________________ Testing Video Class
     std::cout << "Testing Video class : " << std::endl;
     std::string clipPath = "./media/video.mp4";
-    Video* clip = new Video("fileName",clipPath);
+    Video* clip = new Video("fileName",clipPath,18);
     //clip->describe(std::cout);
     //clip->playMedia();
 
 
     //___________________________________________________________________ ETAPE 5 ___
-    std::cout << "____ QUESTION 5 : ____" << std::endl;
+    std::cout << "_____________________ QUESTION 5 : ____________________" << std::endl;
     // Using vector
     std::vector<Multimedia*> listeMedia;
     listeMedia.push_back(image);
@@ -63,9 +66,10 @@ int main(int argc, char* argv[]) {
     }
 
     //___________________________________________________________________ ETAPE 6 ___
-    std::cout << "____ QUESTION 6 : ____" << std::endl;
+    std::cout << "_____________________ QUESTION 6 : ____________________" << std::endl;
     int dur [] = { 10, 20, 30 };
     Film* movie = new Film("MOVIEname","MOVIEpath",60,3,dur); //int[] can be cast to int*
+    //Normally Duration is the sum of the chapters' durations
     movie->describe(std::cout);
 
     std::cout << "__ Testing setChaptersDurations method" << std::endl;
@@ -86,6 +90,7 @@ int main(int argc, char* argv[]) {
     std::cout << chapters_[2] << std::endl;
 
     //___________________________________________________________________ ETAPE 7 ___
+    std::cout << "_____________________ QUESTION 7 : ____________________" << std::endl;
     // _______ Testing object copy problem
     std::cout << "__ Testing copy" << std::endl;
     std::cout << "original movie:" << std::endl;
@@ -102,7 +107,14 @@ int main(int argc, char* argv[]) {
     copy_movie->describe(std::cout);
 
     //___________________________________________________________________ ETAPE 8 ___
-    Groupe grp = Groupe("Premier Groupe",{movie, multi, clip});
-    grp.describe(std::cout);
-
+    std::cout << "_____________________ QUESTION 9 : ____________________" << std::endl;
+    std::shared_ptr<Video> video_shPtr = std::make_shared<Video>("Video_sharedPointerName","Video_sharedPointerPath");
+    std::shared_ptr<Film> film_shPtr = std::make_shared<Film>("Film_sharedPointerName","Film_sharedPointerPath");
+    video_shPtr->describe(so);
+    film_shPtr->describe(so);
+    std::shared_ptr<Multimedia> multi_shPtr = film_shPtr;
+    multi_shPtr->describe(so);
+    //trying initialisation with raw pointers
+    std::shared_ptr<Photo> image_shPtr(image);
+    image_shPtr->describe(so);
 }

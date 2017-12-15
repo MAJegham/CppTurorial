@@ -19,3 +19,7 @@ ___ Question 7 ___
 La mémoire qui n'est pas gérée automatiquement par c++ est la mémoire dynamique (ie le tas, la mémoire allouée par new). Ce sont donc les classes où on a utilisé ce mot clé qui doivent être modifiées pour empecher les fuites de mémoire. Notamment, la classe Film. La classe Film a, donc, besoin d'un destructeur qui libérera la mémoire allouée avant la destruction de l'objet.
 Dans certain cas la copie d'objets pose problème. Eventuellement quand l'objet possede un pointeur comme attribut dans ce cas la valeur qui est réellement d'interet et devrait être propre à chaque objet est le pointé mais lors de la copie c'est seulement le pointeur qui est copié et le pointé devient partagés par les deux instances de l'objets. Dans ce cas, il faudrait empecher la copie d'objets sinon la gérer en modifiant la fonction de copie et l'opérateur =.
 [code_etape7_afterChangingTheChaptersOfTheCopy]: the copy method is still default it affects the same attributes to the copy. movie and its copy share the same array but different pointers. calling the setChaptersDurations method on copy will delete the current array and replace it with the argument thus deleting the array pointed to by the original movie.
+
+___ Question 8 ___ 
+Dans l'implémentation de la classe Groupe, on hérite d'une list<Multimedia*> en utilisant des pointeurs et non des objets. Cela permet l'utilisation du polymorphisme sur les objets du groupe ce qui est le but ici.
+
