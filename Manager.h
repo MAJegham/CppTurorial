@@ -34,7 +34,12 @@ public:
     Film createFilm(std::string name, std::string pathname, int duration, int chaptersNumber, int* chaptersDurations);
 
     void describeMedia(std::string, std::ostream& stream) const;
+    void playMedia(std::string) const;
 
+    Groupe createGroup();
+    Groupe createGroup(const std::string groupname);
+    Groupe createGroup(const std::string groupname,std::initializer_list<std::shared_ptr<Multimedia>> il);
+    void describeGroup(std::string, std::ostream& stream) const;
 };
 
 #endif // MANAGER_H

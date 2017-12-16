@@ -24,6 +24,7 @@ public:
     std::string getGroupName() const;
     void describe(std::ostream& stream) const;
 
+    virtual ~Groupe();
 };
 
 #endif // GROUPE_H

@@ -23,15 +23,17 @@ int main(int argc, char* argv[]) {
     //___________________________________________________________________ ETAPE 8 ___
     std::cout << "_____________________ QUESTION 10 : ____________________" << std::endl;
     Manager manager = Manager();
-    Photo photo = manager.createPhoto("myImage","ImagePath",5,15);
-    photo.describe(so);
-    Video video = manager.createVideo("myVideo","VideoPath", 548);
-    video.describe(so);
+
     int dur [] = { 10, 20, 30 };
     Film film = manager.createFilm("myFilm","FilmPath",1256,3,dur);
     film.describe(so);
+    Photo photo = manager.createPhoto("myImage","ImagePath",5,15);
+    photo.describe(so);
+    Video video = manager.createVideo("myVideo","./media/video.mp4", 548);
+    video.describe(so);
+    Groupe grp = manager.createGroup("MyGroup",{std::make_shared<Film>(film),std::make_shared<Video>(video)});
+    manager.describeGroup("MyGro",so);
 
-    manager.describeMedia("myVideo",so);
 
 
     std::cout << "\n_____________________ END OF MAIN __________________________" << std::endl;

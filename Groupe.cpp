@@ -18,6 +18,11 @@ Groupe::Groupe(const std::string groupname, std::initializer_list<std::shared_pt
 //     std::shared_ptr<Photo> image_shPtr(image);
 //}
 
+Groupe::~Groupe()
+{
+    std::cout << "Groupe object __ " << this->getGroupName() << " __ was destroyed !" << std::endl;
+}
+
 std::string Groupe::getGroupName() const
 {
     return this->groupname;

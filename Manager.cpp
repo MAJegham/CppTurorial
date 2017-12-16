@@ -76,12 +76,54 @@ void Manager::describeMedia(std::string nameIndex, std::ostream& stream) const
     }
     else
     {
-        stream << "Requested element doesn't exist !" << std::endl;
+        stream << "ERROR: Requested media doesn't exist !" << std::endl;
     }
 }
 
+void Manager::playMedia(std::string nameIndex) const
+{
+    if ( this->multimediaMap.count(nameIndex) )
+    {
+        this->multimediaMap.at(nameIndex)->playMedia();
+    }
+    else
+    {
+        std::cout << "ERROR: Requested media doesn't exist !" << std::endl;
+    }
+}
 
+Groupe Manager::createGroup()
+{
+    std::shared_ptr<Groupe> grp_shPtr = std::make_shared<Groupe>();
+    this->groupeMap.insert(std::pair< std::string, std::shared_ptr<Groupe> >(grp_shPtr->getGroupName(),grp_shPtr));
+    return *(grp_shPtr.get());
+}
 
+Groupe Manager::createGroup(const std::string groupname)
+{
+    std::shared_ptr<Groupe> grp_shPtr = std::make_shared<Groupe>(groupname);
+    this->groupeMap.insert(std::pair< std::string, std::shared_ptr<Groupe> >(grp_shPtr->getGroupName(),grp_shPtr));
+    return *(grp_shPtr.get());
+}
+
+Groupe Manager::createGroup(const std::string groupname,std::initializer_list<std::shared_ptr<Multimedia>> il)
+{
+    std::shared_ptr<Groupe> grp_shPtr = std::make_shared<Groupe>(groupname,il);
+    this->groupeMap.insert(std::pair< std::string, std::shared_ptr<Groupe> >(grp_shPtr->getGroupName(),grp_shPtr));
+    return *(grp_shPtr.get());
+}
+
+void Manager::describeGroup(std::string nameIndex, std::ostream& stream) const
+{
+    if ( this->groupeMap.count(nameIndex) )
+    {
+        this->groupeMap.at(nameIndex)->describe(stream);
+    }
+    else
+    {
+        stream << "ERROR: Requested group doesn't exist !" << std::endl;
+    }
+}
 
 
 
