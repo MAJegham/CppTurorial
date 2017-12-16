@@ -1,6 +1,8 @@
 Film.o: Film.cpp Film.h Video.h Multimedia.h
 Multimedia.o: Multimedia.cpp Multimedia.h
-main.o: main.cpp Multimedia.h Photo.h Video.h Film.h Groupe.h
+main.o: main.cpp Multimedia.h Manager.h Groupe.h Photo.h Video.h Film.h
 Photo.o: Photo.cpp Photo.h Multimedia.h
 Video.o: Video.cpp Video.h Multimedia.h
 Groupe.o: Groupe.cpp Groupe.h Multimedia.h
+Manager.o: Manager.cpp Manager.h Multimedia.h Groupe.h Photo.h Video.h \
+ Film.h

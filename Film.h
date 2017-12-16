@@ -11,10 +11,8 @@ private:
 
 public:
     Film();
-    Film(std::string name, std::string pathname,
-         int duration, int chaptersNumber, int* chaptersDurations);
-
     Film(std::string name, std::string pathname);
+    Film(std::string name, std::string pathname, int duration, int chaptersNumber, int* chaptersDurations);
 
     //Copy constructor and operator=
     Film(const Film& from);

@@ -10,8 +10,7 @@ protected:
 
 public:
     Video();
-    Video(std::string name, std::string pathname,
-          int duration);
+    Video(std::string name, std::string pathname, int duration);
 
     Video(std::string name, std::string pathname);
 

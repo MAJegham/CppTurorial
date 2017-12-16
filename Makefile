@@ -14,7 +14,7 @@ PROG = tp1_project
 #
 # Fichiers sources (NE PAS METTRE les .h ni les .o seulement les .cpp)
 #
-SOURCES = Film.cpp Multimedia.cpp main.cpp Photo.cpp Video.cpp Groupe.cpp
+SOURCES = Film.cpp Multimedia.cpp main.cpp Photo.cpp Video.cpp Groupe.cpp Manager.cpp
 
 #
 # Fichiers objets (ne pas modifier sauf si l'extension n'est pas .cpp)

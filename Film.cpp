@@ -4,6 +4,11 @@ Film::Film():
     chaptersNumber(0), chaptersDurations(nullptr)
 {}
 
+Film::Film(std::string name, std::string pathname):
+    Video(name, pathname, duration),
+    chaptersNumber(0), chaptersDurations(nullptr)
+{}
+
 Film::Film(std::string name, std::string pathname,
            int duration, int chaptersNumber, int* chaptersDurations):
     Video(name, pathname, duration)
@@ -11,11 +16,6 @@ Film::Film(std::string name, std::string pathname,
 {
     this->setChaptersDurations(chaptersDurations,chaptersNumber);
 }
-
-Film::Film(std::string name, std::string pathname):
-    Video(name, pathname, duration),
-    chaptersNumber(0), chaptersDurations(nullptr)
-{}
 
 Film::Film(const Film& from) : Video(from)
 {
