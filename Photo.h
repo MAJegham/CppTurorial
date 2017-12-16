@@ -21,7 +21,7 @@ public:
     float getLatitude() const;
     float getLongitude() const;
 
-    void describe(std::ostream& stream) const override;
+    void describe(std::ostream& stream = std::cout) const override;
     void playMedia() const override;
 
 };

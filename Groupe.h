@@ -22,7 +22,7 @@ public:
 //    Groupe(const std::string groupname,std::initializer_list<Multimedia*> il);
 
     std::string getGroupName() const;
-    void describe(std::ostream& stream) const;
+    void describe(std::ostream& stream = std::cout) const;
 
     virtual ~Groupe();
 };

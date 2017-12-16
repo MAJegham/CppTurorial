@@ -30,11 +30,14 @@ int main(int argc, char* argv[]) {
     Photo photo = manager.createPhoto("myImage","ImagePath",5,15);
     photo.describe(so);
     Video video = manager.createVideo("myVideo","./media/video.mp4", 548);
-    video.describe(so);
+    manager.describeMedia("MyVideo",so);
     Groupe grp = manager.createGroup("MyGroup",{std::make_shared<Film>(film),std::make_shared<Video>(video)});
-    manager.describeGroup("MyGro",so);
+    manager.describeGroup("MyGroup",so);
 
-
+    // Constructors set to Private, we can no longer access them from outside
+    //    Video* illegalVideo = new Video("unlistedVideo","PathToUnlistedVideo");
+    //    illegalVideo->describe();
+    //    manager.describeMedia("unlistedVideo",so);
 
     std::cout << "\n_____________________ END OF MAIN __________________________" << std::endl;
 }

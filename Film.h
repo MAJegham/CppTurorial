@@ -6,13 +6,15 @@
 class Film : public Video
 {
 private:
+
     int chaptersNumber;
     int* chaptersDurations;
 
 public:
+    Film(std::string name, std::string pathname, int duration, int chaptersNumber, int* chaptersDurations);
     Film();
     Film(std::string name, std::string pathname);
-    Film(std::string name, std::string pathname, int duration, int chaptersNumber, int* chaptersDurations);
+
 
     //Copy constructor and operator=
     Film(const Film& from);
@@ -23,7 +25,7 @@ public:
     int * getChaptersDurations() const;
     int getChaptersNumber() const;
 
-    void describe(std::ostream& stream) const override;
+    void describe(std::ostream& stream = std::cout) const override;
 
     virtual ~Film();
 
