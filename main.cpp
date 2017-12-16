@@ -117,4 +117,14 @@ int main(int argc, char* argv[]) {
     //trying initialisation with raw pointers
     std::shared_ptr<Photo> image_shPtr(image);
     image_shPtr->describe(so);
+    Video* raw_ptr = video_shPtr.get();
+    video_shPtr.reset();
+    raw_ptr->describe(so); //Beware : Mixing raw pointers and shared_ptr: The Pointee was already deleted
+
+    // Apparently the shared_pointer constructor creates a copy of the pointee
+    // Code runs correctly
+    video_shPtr = std::make_shared<Video>(*clip);
+    video_shPtr.reset();
+    clip->describe(so);
+
 }
