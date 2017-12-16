@@ -9,3 +9,5 @@ Film.h
 Film.cpp
 Groupe.h
 Groupe.cpp
+Manager.h
+Manager.cpp

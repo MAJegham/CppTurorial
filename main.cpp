@@ -9,6 +9,8 @@
 #include "Film.h"
 #include "Groupe.h"
 #include <vector>
+#include <map>
+#include <memory>
 
 #define so std::cout
 
@@ -58,6 +60,13 @@ int main(int argc, char* argv[]) {
     grp2.describe(so);
     grp2.pop_front(); // This normally destroys video_shPtr pointee
     grp2.describe(so);
+
+    //___________________________________________________________________ ETAPE 8 ___
+    std::cout << "_____________________ QUESTION 10 : ____________________" << std::endl;
+    std::map<std::string,std::shared_ptr<Multimedia>> multimediaMap;
+    std::pair<std::string, std::shared_ptr<Multimedia>> firstElt("multiElt",multi_shPtr);
+    multimediaMap.insert(firstElt);
+    multimediaMap["multiElt"]->describe(so);
 
 
 
