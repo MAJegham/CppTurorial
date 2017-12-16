@@ -127,4 +127,34 @@ int main(int argc, char* argv[]) {
     video_shPtr.reset();
     clip->describe(so);
 
+    //Testing automatic destruction with shared_ptr
+    std::cout << "________SharedPtr Destruction test" << std::endl;
+    image_shPtr->describe(so);
+    image_shPtr.reset();
+
+    std::cout << "End of program; remaining shared_ptr pointees will be destroyed as well" << std::endl;
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

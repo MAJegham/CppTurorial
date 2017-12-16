@@ -5,7 +5,10 @@ Multimedia::Multimedia(): name(""), pathname(""){}
 Multimedia::Multimedia(std::string name, std::string pathname):
 name(name), pathname(pathname) {}
 
-Multimedia::~Multimedia(){}
+Multimedia::~Multimedia()
+{
+    std::cout << "Multimedia object __ " << this->getName() << " __ was destroyed !" << std::endl;
+}
 
 void Multimedia::setName(std::string name)
 {
